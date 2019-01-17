@@ -33,3 +33,57 @@ The result of such a simple approach has many shortcomings:
         It included delete which might not be desired.
 
 For a larger application these voids and many others would certainly need be filled the the technical decisions of what to fill them with would require wider understanding of the product and it's requirements.
+
+Experimentations:
+
+    I'm using this codebase to also run some experiementations comparing JS frameworks.
+
+    Those parts are not expected to work at this point or to be complete.
+
+    Eventually I intend to compare:
+        Base libraries:
+            Vanilla JS
+                Best for performance and battery life. Though realistically there are only limited
+                scenarios where that plays out. Raw CPU and memory performance are rarely concerns
+                though bandwidth and battery life tend to still rank quite strongly.
+                Can be verbose starting out until a library of common functions has been built up.
+                Organisation tends to vary a lot but also offers the most flexibility and least overhead.
+            React
+                Relatively simple and unassuming to develop for dynamic DOM JS applications.
+                Although it's sold on being fast this isn't actually true.
+                It's slow and inefficient compared to VJS.
+                However compared to some other libraries that try to simplify things in similar ways
+                it does have some tricks up its sleave to perform better than those tools often perform.
+                There are certain ways in which to write React that also minimises its inefficiencies.
+                Realistically however in most scenarios it will be more than fast enough.
+                As in there's only so much that can go onto a screen and change so rapidly that
+                a human can perceive.
+                React has some further packages such as flux and redux and I'm not entirely sure what they
+                do but it looks roughly as though they add more fleshed out framework components to react.
+                By default react is very minimal and not really so much of a framework as a DOM UI component library.
+            jQuery
+                A traditional library. Wraps native JS library in an unobtrusive way. Predominantly the benefit was
+                portability though that has dropped of and it tends to be more of a less verbose more convenient wrapper
+                around native JS functions.
+                Does have many libraries build upon it such as complex UI components.
+                It's wrapping around native JS functions often imposes a significant performance hit.
+                It's not uncommon for it to have a thousand times or a million times worse performance.
+                In most cases that's of little concern.
+            Angular
+                Not sure if 2 or 3. Has a very large library and very thorough featureset. Templating library that seems to
+                avoid string substitution using the DOM more instead.
+            VueJS
+                From what I understand a lot of people like it as a middle weight option between angular and react.
+                It tends to be noted for being more approachable or easier.
+        Other things:
+            Might be worth giving TS a try here or there.
+            JSX is something I can use not only with react but jquery and VJS.
+            Angular I'm not sure about. I think it might have some degree of string templating even if it tries to defer things.
+            Might be worth giving material a try as well.
+
+        Comparisons:
+            They wont be all exactly the same. With anyone of these there are a whole number of different ways of doing things or even mixing things up.
+            Generally speaking though they'll all eventually build off a meta-data based approach and I'm most likely to have all of them
+            extend a shared VJS data model that's isolated from presentation concerns.
+            Not all of these frameworks expect work to be done like that, instead they often offer their own model and data acquisition facilities.
+            Easiest thing to do would be to implement those as proxies, etc.
