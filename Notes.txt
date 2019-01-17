@@ -1,0 +1,35 @@
+This is an exceptionally simple crud example consisting of a Symfony 4 skeleton, a doctrine entity and a CRUD controller/form type and views generated from that.
+
+The reason for keeping it so simple is a combination of in the interest of minimising time and because the requirements are also quite simple.
+
+Platform: Linux x86_64, PHP 7.3, Symfony 4, mysql (latest percona).
+
+The result of such a simple approach has many shortcomings:
+
+    1.
+        I don't think that reference should be a field that should be edited.
+
+    2.
+        There's no strict or well fleshed out validation (ensuring that there's a point at which everything is known to be validated and providing useful error messages).
+        Amount should be validated to ensure that it's within an appropriate range such as greater than zero and that there's no loss of precision.
+        Currency is not considered. I have assumed that reference is a human readable identifier. Again there's no explicit length or format check for this.
+
+        These is also no complex front end validation (not javascript).
+
+    3.
+        I can't guarantee that for example the views symfony automatically generates are fully secure.
+        I've generally simply not checked escaping or CRSF and left that down to symfony.
+
+    4.
+        No tests, authentication, etc.
+
+    5.
+        Architecturally a minimal implementation such as this is very limited.
+        It tends to be a useful standard to remove business logic concerns from a controller (thin controllers)
+        and to have sufficient service layers for IO, serialization, validation which would generally make it easier
+        for more complex business logic and operations to be used from any context relatively easily.
+
+    6.
+        It included delete which might not be desired.
+
+For a larger application these voids and many others would certainly need be filled the the technical decisions of what to fill them with would require wider understanding of the product and it's requirements.
